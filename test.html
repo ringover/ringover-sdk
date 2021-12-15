@@ -1,0 +1,120 @@
+<!-- .
+  _____  _              ____                   
+ |  __ \(_)            / __ \                  
+ | |__) |_ _ __   __ _| |  | |_   _____ _ __   
+ |  _  /| | '_ \ / _` | |  | \ \ / / _ \ '__|  
+ | | \ \| | | | | (_| | |__| |\ V /  __/ |     
+ |_|  \_\_|_| |_|\__, |\____/  \_/ \___|_|     
+                  __/ |  HIRING !              
+                 |___/                         
+
+. -->
+<!doctype html>
+<html>
+    <head> 
+        <meta charset="UTF-8">
+        
+        <title>Ringover Test SDK</title>
+
+    </head>
+    <body>
+
+        <!-- Container test -->
+        <div id="iframe-ringover" style="height: 620px; width: 380px;"></div>
+        
+        <br>
+        <br>
+        <br>
+        
+        <!-- Buttons to trigger functions -->
+        <button onclick="generate()"> Generate in DOM  </button>
+        <button onclick="destroy()">  Destroy of DOM   </button>
+        <button onclick="show()">     Show iframe      </button>
+        <button onclick="hide()">     Hide iframe      </button>
+        <button onclick="toggle()">   Toggle           </button>
+        <button onclick="reload()">   Reload iframe    </button>
+        <button onclick="logout()">   Logout user      </button>
+        <!-- <button onclick="getPage()">Log current page in browser console</button> -->
+
+        <br>
+        <br>
+
+        <!-- Dial number -->
+        <input type="text" placeholder="Number to call" id="dial-number"> 
+        <button onclick="dial()">Call</button>
+
+        <br>
+        <br>
+
+        <!-- Page selector -->
+        <span>Page: </span>
+        <select onchange="changePage(this)" id="select-page">
+            <option value="dialer">dialer</option>
+            <option value="call-logs">call-logs</option>
+            <option value="contacts">contacts</option>
+            <option value="sms">sms</option>
+            <option value="chat">chat</option>
+            <option value="menu">menu</option>
+            <option value="settings">settings</option>
+            <option value="others">others</option>
+        </select>
+
+        <br>
+        <br>
+
+        <!-- Fake console -->
+        <h4>Events</h4>
+        <div style="width:500px; height: 300px; padding-left: 10px; overflow-y: auto; border: 1px solid black" id="get-events">
+
+        </div>
+        
+        <!-- Import sdk -->
+        <script src="ringover-sdk.js" type="text/javascript"></script>
+        
+        <script>
+            let simpleSDK       = null;
+            // Trigger functions
+            const generate      = _ => simpleSDK.generate(); 
+            const destroy       = _ => simpleSDK.destroy();
+            const show          = _ => simpleSDK.show();
+            const hide          = _ => simpleSDK.hide();
+            const toggle        = _ => simpleSDK.toggle();
+            const reload        = _ => simpleSDK.reload();
+            const logout        = _ => simpleSDK.logout();
+            const dial          = _ => simpleSDK.dial(document.getElementById('dial-number').value);
+            const getPage       = _ => console.log(simpleSDK.getCurrentPage());
+            const changePage    = s => simpleSDK.changePage(s.selectedOptions[0].value);
+
+            // Log 
+            const getEvent      = e => {
+                let p = document.createElement('pre');
+                p.innerText = e.action + " => " + JSON.stringify(e.data);
+                document.getElementById('get-events').appendChild(p);
+            };
+
+            // Set current page
+            const setNewPage    = e => {
+                for (let opt of document.getElementById('select-page').options) opt.selected = !!(opt.value == e.data.page);
+            };
+
+            window.onload = _ => {
+
+                // Default test constructor
+                simpleSDK = new window.RingoverSDK();
+
+                // Container test constructor
+                // simpleSDK = new window.ringoverSDK({container: 'iframe-ringover', size: "auto", animation: false, border: false});  
+                
+                // Event listener 
+                simpleSDK.on('changePage',   getEvent);
+                simpleSDK.on('ringingCall',  getEvent);
+                simpleSDK.on('answeredCall', getEvent);
+                simpleSDK.on('hangupCall',   getEvent);
+                simpleSDK.on('login',        getEvent);
+                simpleSDK.on('logout',       getEvent);
+                simpleSDK.on('dialerReady',  getEvent);
+                simpleSDK.on('changePage',   setNewPage);
+            };
+        </script>
+    </body>
+</html>
