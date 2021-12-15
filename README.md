@@ -1,8 +1,6 @@
 # Ringover SDK
 
-Ringover SDK to import your favourite VOIP web app on iframe on our interfaces
-
-Import easily the **[ringover web app][0]** iframe on your own project (like your crm)
+Import easily the **[ringover web app][0]** iframe into your own project (like your crm)
 
 You need a **[ringover account][13]** to properly use the following features.
 
