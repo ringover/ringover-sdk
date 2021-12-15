@@ -226,22 +226,22 @@ All option properties are optional.
 const simpleSDK = new RingoverSDK();
 
 // Iframe main methods
-simpleSDK.generate();					// iframe element
-simpleSDK.destroy();					// true | false
-simpleSDK.checkStatus();				// true | false
+simpleSDK.generate();			// iframe element
+simpleSDK.destroy();			// boolean
+simpleSDK.checkStatus();		// boolean
 
 // Display methods
-simpleSDK.show();						// true | false
-simpleSDK.hide();						// true | false
-simpleSDK.toggle();						// true | false
-simpleSDK.isDisplay();					// true | false
+simpleSDK.show();			// boolean
+simpleSDK.hide();			// boolean
+simpleSDK.toggle();			// boolean
+simpleSDK.isDisplay();			// boolean
 
 // Ringover methods
-simpleSDK.logout();						// true | false
-simpleSDK.reload();						// true | false
-simpleSDK.getCurrentPage();				// string(pageName) | false
-simpleSDK.changePage("settings");		// true | false
-simpleSDK.dial("+33179757575");			// true | false
+simpleSDK.logout();			// boolean
+simpleSDK.reload();			// boolean
+simpleSDK.getCurrentPage();		// string(pageName) | boolean(false)
+simpleSDK.changePage("settings");	// boolean
+simpleSDK.dial("+33179757575");		// boolean
 
 // Events
 
@@ -361,7 +361,7 @@ Trigger a hook when the web app changes page. Return the new page name.
 	}
 }
 ```
-* `pageName`: ([string][1]). Example: "dialer", "call-logs", "sms", "settings"...
+* `page`: ([string][1]). Example: "dialer", "call-logs", "sms", "settings"...
 
 ### `dialerReady`
 
