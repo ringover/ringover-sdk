@@ -16,7 +16,7 @@ Standalone file is available on:
 
 Also the package is available on npm as _ringoverSDK_
 
-[https://www.npmjs.com/package/ringoverSDK](https://www.npmjs.com/package/ringoverSDK)
+[https://www.npmjs.com/package/ringoverSDK](https://www.npmjs.com/package/ringover-sdk)
 
 <br>
 
