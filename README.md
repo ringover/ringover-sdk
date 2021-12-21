@@ -11,7 +11,7 @@ You need a **[ringover account][13]** to properly use the following features.
 
 Standalone file is available on:
 
-[https://webcdn.ringover.com/resource/SDK/1.0.1/ringover-sdk.js](https://webcdn.ringover.com/resource/SDK/1.0.1/ringover-sdk.js)
+[https://webcdn.ringover.com/resource/SDK/1.0.1/ringover-sdk.js](https://webcdn.ringover.com/resource/SDK/1.0.1/ringoverSDK.js)
 
 
 Also the package is available on npm as _ringoverSDK_
