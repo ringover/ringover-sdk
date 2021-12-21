@@ -11,12 +11,12 @@ You need a **[ringover account][13]** to properly use the following features.
 
 Standalone file is available on:
 
-[https://webcdn.ringover.com/resource/SDK/1.0.1/ringover-sdk.js](https://webcdn.ringover.com/resource/SDK/1.0.1/ringoverSDK.js)
+[https://webcdn.ringover.com/resource/SDK/1.0.1/ringover-sdk.js](https://webcdn.ringover.com/resource/SDK/1.0.1/ringover-sdk.js)
 
 
 Also the package is available on npm as _ringoverSDK_
 
-[https://www.npmjs.com/package/ringoverSDK](https://www.npmjs.com/package/ringover-sdk)
+[https://www.npmjs.com/package/ringover-sdk](https://www.npmjs.com/package/ringover-sdk)
 
 <br>
 
@@ -30,7 +30,7 @@ Also the package is available on npm as _ringoverSDK_
 
 ```html
 
-<script  src="ringover-sdk-1.0.1.js"  type="text/javascript"></script>
+<script  src="ringover-sdk.js"  type="text/javascript"></script>
 
 ```
 
@@ -50,13 +50,13 @@ const  simpleSDK = new  window.RingoverSDK();
 
 ```sh
 
-npm install --save ringoverSDK
+npm install --save ringover-sdk
 
 ```
 
 ```js
 
-const RingoverSDK = require("RingoverSDK");
+const RingoverSDK = require("ringover-sdk");
 const simpleSDK = new RingoverSDK();
 // ...
 
@@ -70,7 +70,7 @@ const simpleSDK = new RingoverSDK();
 
 ```js
 
-import RingoverSDK from "RingoverSDK";
+import RingoverSDK from "ringover-sdk";
 const simpleSDK = new RingoverSDK();
 
 // ...
