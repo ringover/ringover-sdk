@@ -490,7 +490,7 @@ Trigger a hook when a call is ringing or is being dialed. Return data call.
 
 ## License
 
-**LGPL-3.0**
+**[Apache-2.0](https://github.com/ringover/ringover-sdk/blob/main/LICENSE.md)**
 
 
 
