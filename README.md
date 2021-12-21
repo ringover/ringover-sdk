@@ -85,7 +85,7 @@ const simpleSDK = new RingoverSDK();
 
 ```js
 
-requirejs(["RingoverSDK"], function(RingoverSDK) {
+requirejs(["ringover-sdk"], function(RingoverSDK) {
     const simpleSDK = new RingoverSDK();
     //...
 });
