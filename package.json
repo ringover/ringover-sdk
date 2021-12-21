@@ -1,7 +1,7 @@
 {
   "name": "ringover-sdk",
-  "version": "1.0.0",
-  "description": "import easily the ringover web app iframe into you own project",
+  "version": "1.0.2",
+  "description": "Ringover SDK to import your favourite VOIP web app as an iframe on your interfaces",
   "main": "ringover-sdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,10 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/ringover/ringover-sdk.git"
   },
-  "author": "ringover dev",
+  "author": "Ringover (https://ringover.com)",
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/ringover/ringover-sdk/issues"
   },
-  "homepage": "https://github.com/ringover/ringover-sdk#readme"
+  "homepage": "https://ringover.com"
 }
