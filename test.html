@@ -20,7 +20,7 @@
     <body>
 
         <!-- Container test -->
-        <div id="iframe-ringover" style="height: 620px; width: 380px;"></div>
+        <div id="iframe-ringover" style="height: 620px; width: 380px; background: lightgrey">Test Container<br>(please uncomment the corresponding constructor line in the DOM)</div>
         
         <br>
         <br>
@@ -102,8 +102,11 @@
                 // Default test constructor
                 simpleSDK = new window.RingoverSDK();
 
+                // Body test constructor
+                // simpleSDK = new window.RingoverSDK({size: "auto", trayicon: false, animation: false});
+
                 // Container test constructor
-                // simpleSDK = new window.ringoverSDK({container: 'iframe-ringover', size: "auto", animation: false, border: false});  
+                // simpleSDK = new window.RingoverSDK({container: 'iframe-ringover', animation: false, border: false});
                 
                 // Event listener 
                 simpleSDK.on('changePage',   getEvent);
