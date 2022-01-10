@@ -11,7 +11,7 @@ You need a **[ringover account][13]** to properly use the following features.
 
 Standalone file is available on:
 
-[https://webcdn.ringover.com/resources/SDK/1.0.3/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.0.3/ringover-sdk.js)
+[https://webcdn.ringover.com/resources/SDK/1.0.4/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.0.4/ringover-sdk.js)
 
 
 Also the package is available on npm as _ringoverSDK_
@@ -85,7 +85,7 @@ const simpleSDK = new RingoverSDK();
 
 ```js
 
-requirejs(["ringover-sdk"], function(RingoverSDK) {
+require(["ringover-sdk"], function(RingoverSDK) {
     const simpleSDK = new RingoverSDK();
     //...
 });
@@ -191,8 +191,8 @@ All option properties are optional.
     * **[`position.bottom`][5]**: **[string][1]** 
     * **[`position.left`][6]**: **[string][1]** 
     * **[`position.right`][7]**: **[string][1]** 
-  * If `size` is `"auto"` or `"big"`, default position value is `{top: "0", left: "0"}`
-  * If `size` is `"medium"` or `"small"`, default position value is `{bottom: "50px", right: "50px"}`
+  * If `size` is `"auto"` or `"big"` or if `container` is filled, default position value is `{top: "0", left: "0"}`
+  * If `size` is `"medium"` or `"small"`, default position value is `{bottom: "0", right: "64px"}`
   
  ### `border`: **[boolean][9]**
   * Choose if you want to display the border of the iframe.
@@ -213,7 +213,7 @@ All option properties are optional.
     * **[`position.left`][6]**: **[string][1]** 
     * **[`position.right`][7]**: **[string][1]** 
   * If the container is null, default position value is `{bottom: "10px", right: "10px"}`
-  * If the container is not null , default position value is `{bottom: "-30px", right: "-30px"}`
+  * If the container is not null , default position value is `{bottom: "-42px", right: "-42px"}`
 
 <br>
 
@@ -409,7 +409,7 @@ Trigger a hook when the user logs out the web app. Return the previous user id.
 
 ### `ringingCall`
 
-Trigger a hook when a call is ringing or is being dialed. Return data call.
+Trigger a hook when a call is ringing or is being dialed. Automatically open the iframe. Return data call.
 
 **Return [object][3]:**
 ```js
