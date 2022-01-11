@@ -1,6 +1,6 @@
 {
   "name": "ringover-sdk",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "Ringover SDK to import your favourite VOIP web app as an iframe on your interfaces",
   "main": "ringover-sdk.js",
   "scripts": {
