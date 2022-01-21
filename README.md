@@ -11,7 +11,7 @@ You need a **[ringover account][13]** to properly use the following features.
 
 Standalone file is available on:
 
-[https://webcdn.ringover.com/resources/SDK/1.0.4/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.0.4/ringover-sdk.js)
+[https://webcdn.ringover.com/resources/SDK/1.0.5/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.0.5/ringover-sdk.js)
 
 
 Also the package is available on npm as _ringoverSDK_
@@ -143,6 +143,9 @@ new RingoverSDK({
 	// true, false
 	animation: true,
 
+	// "rgb(0,0,0)", "#eee", "red"
+	backgroundColor: "transparent",
+
 	// true, false
 	trayicon: true,
 
@@ -193,6 +196,11 @@ All option properties are optional.
     * **[`position.right`][7]**: **[string][1]** 
   * If `size` is `"auto"` or `"big"` or if `container` is filled, default position value is `{top: "0", left: "0"}`
   * If `size` is `"medium"` or `"small"`, default position value is `{bottom: "0", right: "64px"}`
+
+ ### `backgroundcolor` : **[string][1]**
+  * Choose your background iframe color (only visible if trayicon is enable)
+  * Can be any [CSS background color][14] format in string
+  * Default is `"transparent"`
   
  ### `border`: **[boolean][9]**
   * Choose if you want to display the border of the iframe.
@@ -509,3 +517,4 @@ Trigger a hook when a call is ringing or is being dialed. Return data call.
 [11]:	https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number
 [12]:	https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function
 [13]:	https://ringover.com
+[14]:	https://developer.mozilla.org/en-US/docs/Web/CSS/background-color
