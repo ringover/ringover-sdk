@@ -14,7 +14,7 @@ Standalone file is available on:
 [https://webcdn.ringover.com/resources/SDK/1.1.1/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.1.1/ringover-sdk.js)
 
 
-Also the package is available on npm as _ringoverSDK_
+Also the package is available on npm as _ringover-sdk_
 
 [https://www.npmjs.com/package/ringover-sdk](https://www.npmjs.com/package/ringover-sdk)
 
