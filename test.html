@@ -46,6 +46,22 @@
         <br>
         <br>
 
+        <!-- Send SMS -->
+        <input type="text" placeholder="Phone number that received" id="to-number"> 
+        <input type="text" id="message" placeholder="SMS content">
+        <input type="text" placeholder="Phone number that send (optionnal)" id="from-number"> 
+        <button onclick="sendSMS()">Send SMS</button>
+
+        <br>
+        <br>
+
+        <!-- Open CallLog -->
+        <input type="text" placeholder="CallLog call_id to open" id="call-id"> 
+        <button onclick="openCallLog()">Open specific CallLog</button>
+
+        <br>
+        <br>
+
         <!-- Page selector -->
         <span>Page: </span>
         <select onchange="changePage(this)" id="select-page">
@@ -82,6 +98,8 @@
             const reload        = _ => simpleSDK.reload();
             const logout        = _ => simpleSDK.logout();
             const dial          = _ => simpleSDK.dial(document.getElementById('dial-number').value);
+            const sendSMS       = _ => simpleSDK.sendSMS(document.getElementById('to-number').value, document.getElementById('message').value, document.getElementById('from-number').value || null);
+            const openCallLog   = _ => simpleSDK.openCallLog(document.getElementById('call-id').value);
             const getPage       = _ => console.log(simpleSDK.getCurrentPage());
             const changePage    = s => simpleSDK.changePage(s.selectedOptions[0].value);
 
@@ -116,6 +134,8 @@
                 simpleSDK.on('login',        getEvent);
                 simpleSDK.on('logout',       getEvent);
                 simpleSDK.on('dialerReady',  getEvent);
+                simpleSDK.on('smsSent',      getEvent);
+                simpleSDK.on('smsReceived',  getEvent);
                 simpleSDK.on('changePage',   setNewPage);
             };
         </script>
