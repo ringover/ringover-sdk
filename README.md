@@ -11,10 +11,10 @@ You need a **[ringover account][13]** to properly use the following features.
 
 Standalone file is available on:
 
-[https://webcdn.ringover.com/resources/SDK/1.0.5/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.0.5/ringover-sdk.js)
+[https://webcdn.ringover.com/resources/SDK/1.1.1/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.1.1/ringover-sdk.js)
 
 
-Also the package is available on npm as _ringover-sdk_
+Also the package is available on npm as _ringoverSDK_
 
 [https://www.npmjs.com/package/ringover-sdk](https://www.npmjs.com/package/ringover-sdk)
 
@@ -240,14 +240,16 @@ simpleSDK.checkStatus();		// boolean
 simpleSDK.show();			// boolean
 simpleSDK.hide();			// boolean
 simpleSDK.toggle();			// boolean
-simpleSDK.isDisplay();			// boolean
+simpleSDK.isDisplay();		// boolean
 
 // Ringover methods
-simpleSDK.logout();			// boolean
-simpleSDK.reload();			// boolean
-simpleSDK.getCurrentPage();		// string(pageName) | boolean(false)
-simpleSDK.changePage("settings");	// boolean
-simpleSDK.dial("+33179757575");		// boolean
+simpleSDK.logout();									// boolean
+simpleSDK.reload();									// boolean
+simpleSDK.getCurrentPage();							// string(pageName) | boolean(false)
+simpleSDK.changePage("settings");					// boolean
+simpleSDK.dial("+33179757575");						// boolean
+simpleSDK.sendSMS("+33610001000", "Hello");			// boolean
+simpleSDK.openCallLog("616626881427127983");		// boolean
 
 // Events
 
@@ -258,6 +260,8 @@ simpleSDK.on('logout',        (e) => console.log(e.data));
 simpleSDK.on('ringingCall',   (e) => console.log(e.data));
 simpleSDK.on('answeredCall',  (e) => console.log(e.data));
 simpleSDK.on('hangupCall',    (e) => console.log(e.data));
+simpleSDK.on('smsSent',    	  (e) => console.log(e.data));
+simpleSDK.on('smsReceived',   (e) => console.log(e.data));
 simpleSDK.off();
 
 ```
@@ -330,6 +334,28 @@ Call a specific number in the web app. Return true if successful, return false i
 **Parameters:**
 
 * `numberE164`: ([string][1]|[integer][11]). Example: "+16467129500", "442038906606", 33179757575...
+
+**Return [boolean][9]**
+
+### `sendSMS(toNumberE164, content, fromNumberE164)`
+
+send an sms to a specific recipient from a mobile number. Return true if successful, return false if an error occurs.
+
+**Parameters:**
+
+* `toNumberE164`: ([string][1]|[integer][11]). Example: "+16467129500", "442038906606", 33179757575...
+* `content`: ([string][1]). Example: "Hello, welcome to our service."...
+* `fromNumberE164`: ([string][1]|[integer][11]). OPTIONAL Example: "+16467129500", "442038906606", 33179757575...
+
+**Return [boolean][9]**
+
+### `openCallLog(call_id)`
+
+Open a specific call log by its call_id identifier. Return true if successful, return false if an error occurs.
+
+**Parameters:**
+
+* `call_id`: ([string][1]). Example: "616626881427127983"...
 
 **Return [boolean][9]**
 
@@ -493,6 +519,44 @@ Trigger a hook when a call is ringing or is being dialed. Return data call.
 * `call_id`: ([string][1]). Identifier of the call.
 * `ringDuration`: ([integer][11]). Duration in seconds of the ringing time (before answer).
 * `callDuration`: ([integer][11]). Duration in seconds of the call time (after answer). 
+
+### `smsSent`
+
+Trigger a hook when a sms is sendend. Return information about the sms.
+
+**Return [object][3]:**
+```js
+{
+	action: "smsSent",
+	data: {
+		conversation_id: "123"
+		to_number: "toNumber", 
+		message: "Hello World",
+	}
+}
+```
+* `conversation_id`: ([string][1]). Identifier of the conversation.
+* `to_number`: ([string][1]). SMS Recipient E164 number.
+* `message`: ([string][1]). Content of the message.
+
+### `smsReceived`
+
+Trigger a hook when a sms is received. Return information about the sms.
+
+**Return [object][3]:**
+```js
+{
+	action: "smsReceived",
+	data: {
+		conversation_id: "123"
+		from_number: "fromNumber", 
+		message: "Hello World",
+	}
+}
+```
+* `conversation_id`: ([string][1]). Identifier of the conversation.
+* `from_number`: ([string][1]). SMS Sender E164 number.
+* `message`: ([string][1]). Content of the message.
 
 <br>
 
