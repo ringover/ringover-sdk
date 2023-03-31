@@ -11,7 +11,7 @@ You need a **[ringover account][13]** to properly use the following features.
 
 Standalone file is available on:
 
-[https://webcdn.ringover.com/resources/SDK/1.1.1/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.1.1/ringover-sdk.js)
+[https://webcdn.ringover.com/resources/SDK/1.1.3/ringover-sdk.js](https://webcdn.ringover.com/resources/SDK/1.1.3/ringover-sdk.js)
 
 
 Also the package is available on npm as _ringover-sdk_
@@ -327,13 +327,14 @@ Change the current web app page. Return true if successful, return false if an e
 
 **Return [boolean][9]**
 
-### `dial(numberE164)`
+### `dial(numberE164, fromNumberE164)`
 
 Call a specific number in the web app. Return true if successful, return false if an error occurs.
 
 **Parameters:**
 
 * `numberE164`: ([string][1]|[integer][11]). Example: "+16467129500", "442038906606", 33179757575...
+* `fromNumberE164`: ([string][1]|[integer][11]). OPTIONAL Must be one of the numbers in the dialer presentation number list. Example: "+16467129500", "442038906606", 33179757575...
 
 **Return [boolean][9]**
 
